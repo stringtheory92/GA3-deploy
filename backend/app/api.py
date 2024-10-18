@@ -13,7 +13,7 @@ from chatbot import generate_chat_response  # Import the chatbot logic
 app = FastAPI()
 
 # Allow requests from your React frontend
-origins = ["http://localhost:3000"]
+origins = ["http://localhost:3001"]
 
 app.add_middleware(
     CORSMiddleware,
@@ -40,4 +40,4 @@ async def chat(chat_request: ChatRequest):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=5000)
+    uvicorn.run(app, host="0.0.0.0", port=5002)

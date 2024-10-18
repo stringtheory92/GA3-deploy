@@ -1,0 +1,20 @@
+services:
+  backend:
+    build:
+      context: ./backend/app
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5002"
+    env_file:
+      - .env # Use development environment variables for the backend
+
+  frontend:
+    build:
+      context: ./chatbot-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3001:80"
+    env_file:
+      - .env # Use development environment variables for the frontend
+    depends_on:
+      - backend
